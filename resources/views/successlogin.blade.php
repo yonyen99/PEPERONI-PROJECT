@@ -18,52 +18,42 @@
 						<th>Price</th>
 						<th></th>
 					</tr>
-					@foreach ($pizzas as $pizza)
-						<tr>
-						<td class="pizzaName">{{$pizza ->name}}</td>
-						<td>{{$pizza ->ingredients}}</td>
-						<td class="text-success font-weight-bolder">{{$pizza ->prize}}$</td>
+					<tr>
+						<td class="pizzaName">Jack Pizza</td>
+						<td>Tomatoes, ham, cheese, peperoni</td>
+						<td class="text-success font-weight-bolder">15$</td>
 						<td>
-							<!-- ========================================START Model UPDATE================================================ -->
-							<a href="" data-toggle="modal" data-target="#updatePizza{{$pizza->id}}"><i class="material-icons text-info" data-toggle="tooltip" title="Edit Pizza!" data-placement="left">edit</i></a>
-							<div class="modal fade" id="updatePizza{{$pizza->id}}">
-								<div class="modal-dialog">
-								  <div class="modal-content">
-								  
-									<!-- Modal Header -->
-									<div class="modal-header">
-									  <h4 class="modal-title">Edit Pizza</h4>
-									  <button type="button" class="close" data-dismiss="modal">&times;</button>
-									</div>
-									
-									<!-- Modal body -->
-									<div class="modal-body text-right">
-										<form  action="{{route('updatePizza',$pizza->id)}}" method="post">
-											@csrf
-                                       		 @method('patch')
-											<div class="form-group">
-												<input type="text" class="form-control" value="{{$pizza->name}}" name="name">
-											</div>
-											<div class="form-group">
-												<input type="number" class="form-control" value="{{$pizza->prize}}" name="prize">
-											</div>
-											<div class="form-group">
-												<textarea name="ingredients"  class="form-control">{{$pizza->ingredients}}</textarea>
-											</div>
-										<a data-dismiss="modal" class="closeModal">DISCARD</a>
-										  &nbsp;
-									  <input type="submit" value="UPDATE" class="createBtn text-warning">
-									</div>
-									</form>
-								  </div>
-								</div>
-							  </div>
-							  <!-- =================================END MODEL UPDATE==================================================== -->
-							<a href="{{route('deletePizza',$pizza->id)}}" data-toggle="tooltip" title="Delete Pizza!" data-placement="right"><i class="material-icons text-danger">delete</i></a>
+							<a href="" data-toggle="modal" data-target="#updatePizza"><i class="material-icons text-info" data-toggle="tooltip" title="Edit Pizza!" data-placement="left">edit</i></a>
+							<a href="" data-toggle="tooltip" title="Delete Pizza!" data-placement="right"><i class="material-icons text-danger">delete</i></a>
 						</td>
-						</tr>
-					@endforeach
-
+					</tr>
+					<tr>
+						<td class="pizzaName">Seiha Pizza</td>
+						<td>Tomatoes, ham, cheese, peperoni</td>
+						<td  class="text-success font-weight-bolder">1.5$</td>
+						<td>
+							<a href="" data-toggle="modal" data-target="#updatePizza"><i class="material-icons text-info" data-toggle="tooltip" title="Edit Pizza!" data-placement="left">edit</i></a>
+							<a href="" data-toggle="tooltip" title="Delete Pizza!" data-placement="right"><i class="material-icons text-danger">delete</i></a>
+						</td>
+					</tr>
+					<tr>
+						<td class="pizzaName">Rady Pizza</td>
+						<td>Tomatoes, ham, cheese, peperoni</td>
+						<td  class="text-success font-weight-bolder">1500$</td>
+						<td>
+							<a href="" data-toggle="modal" data-target="#updatePizza"><i class="material-icons text-info" data-toggle="tooltip" title="Edit Pizza!" data-placement="left">edit</i></a>
+							<a href="" data-toggle="tooltip" title="Delete Pizza!" data-placement="right"><i class="material-icons text-danger">delete</i></a>
+						</td>
+					</tr>
+					<tr>
+						<td class="pizzaName">Ronan Pizza</td>
+						<td>Tomatoes, ham, cheese, peperoni</td>
+						<td  class="text-success font-weight-bolder">1$</td>
+						<td>
+							<a href="" data-toggle="modal" data-target="#updatePizza"><i class="material-icons text-info" data-toggle="tooltip" title="Edit Pizza!" data-placement="left">edit</i></a>
+							<a href="" data-toggle="tooltip" title="Delete Pizza!" data-placement="right"><i class="material-icons text-danger">delete</i></a>
+						</td>
+					</tr>
 				</table>
 			</div>
 			<div class="col-2"></div>
@@ -85,16 +75,15 @@
         
         <!-- Modal body -->
         <div class="modal-body text-right">
-			<form  action="{{route('createPizza')}}" method="post">
-				@csrf
+			<form  action="/" method="post">
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Pizza name" name ="name">
+					<input type="text" class="form-control" placeholder="Pizza name">
 				</div>
 				<div class="form-group">
-					<input type="number" class="form-control" placeholder="Prize in dollars" name="prize">
+					<input type="number" class="form-control" placeholder="Prize in dollars">
 				</div>
 				<div class="form-group">
-					<textarea name="ingredients" placeholder="Ingredients" class="form-control"></textarea>
+					<textarea name="" placeholder="Ingredients" class="form-control"></textarea>
 				</div>
 			<a data-dismiss="modal" class="closeModal">DISCARD</a>
 		 	 &nbsp;
@@ -108,8 +97,8 @@
 
   <!-- ========================================START Model UPDATE================================================ -->
 	<!-- The Modal -->
-	{{-- <div class="modal fade modal-open" id="updatePizza{{$pizza->id}}" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+	<div class="modal fade" id="updatePizza">
+    <div class="modal-dialog">
       <div class="modal-content">
       
         <!-- Modal Header -->
@@ -122,21 +111,21 @@
         <div class="modal-body text-right">
 			<form  action="/" method="post">
 				<div class="form-group">
-					<input type="text" class="form-control" value="{{$pizza->name}}" >
+					<input type="text" class="form-control" value="Rady Pizza">
 				</div>
 				<div class="form-group">
-					<input type="number" class="form-control" value="{{$pizza->prize}}">
+					<input type="number" class="form-control" value="100">
 				</div>
 				<div class="form-group">
-					<textarea name=""  class="form-control">{{$pizza->ingredients}}</textarea>
+					<textarea name=""  class="form-control">Cheese, Tomatoes, Chicken, Salad</textarea>
 				</div>
 			<a data-dismiss="modal" class="closeModal">DISCARD</a>
 		 	 &nbsp;
 		  <input type="submit" value="UPDATE" class="createBtn text-warning">
-        </form>
         </div>
+        </form>
       </div>
     </div>
-  </div>  --}}
+  </div>
   <!-- =================================END MODEL UPDATE==================================================== -->
 

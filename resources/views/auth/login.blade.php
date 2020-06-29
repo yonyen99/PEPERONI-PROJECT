@@ -50,7 +50,7 @@
           NEXT
         </button>
         <div class="mt-2">
-          <a href="{{route('formRegister')}}" class="small text-uppercase">
+          <a href="" class="small text-uppercase">
             CREATE ACCOUNT
           </a>
         </div>

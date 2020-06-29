@@ -18,4 +18,5 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::post('checklogin', 'MainController@checklogin');
+Route::get('successlogin', 'MainController@successlogin');
