@@ -58,7 +58,8 @@ class MainController extends Controller
         return view('auth.register');
     }
 
-    //check register
+    //check register view
+    
     function checkregister(Request $request)
     {
       
