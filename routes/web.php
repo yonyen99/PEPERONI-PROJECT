@@ -18,21 +18,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/formLogoin', 'pizaControllerResource@goToLoginForm')->name('formLogin');
-// Route::get('/register', 'pizaControllerResource@register')->name('register');
-// Route::get('/main', 'MainController@index');
-// Route::post('checkregister', 'MainController@checkregister');
-Route::resource('piza','pizaControllerResource');
-Route::get('/formRegister', 'pizaControllerResource@goRegisterForm')->name('formRegister');
-
 Route::post('checklogin', 'MainController@checklogin');
-Route::post('checkregister', 'MainController@checkregister');
-
 Route::get('successlogin', 'MainController@successlogin');
+Route::post('checkregister', 'MainController@checkregister');
 Route::get('logout', 'MainController@logout');
+Route::get('/formRegister', 'MainController@goRegisterForm')->name('formRegister');
 Route::post('/create', 'MainController@createPizza')->name('createPizza');
 Route::get('/delete{id}', 'MainController@deletePizza')->name('deletePizza');
 Route::patch('/update{id}', 'MainController@updatePizza')->name('updatePizza');
-// Route::post('/store', 'userController@store')->name('store');

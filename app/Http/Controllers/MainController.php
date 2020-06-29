@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Validator;
 use Auth;
 use App\User;
 use App\Pizza;
 use Hash;
-// use Request;
 class MainController extends Controller
 {
     function index()
@@ -39,61 +39,47 @@ class MainController extends Controller
      }
 
     }
-
-    
-    //check login
-    function checkregister(Request $request)
-    {
-      
-
-    if(Request::get('mycheckbox')){
-      DB::connection('mysql_external');
-      $request->validate([
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        'password' => ['required', 'string', 'min:8'],
-        'adress' => ['required', 'string', 'max:255'],
-    ]);
-    $user = new \App\User;
-    $user->email  = $request->input('email');
-    $user->password = Hash::make($request->input('password'));
-    $user->adress = $request->input('adress');
-    // $user->role_id = $request->input('manage');
-    $user->role_id = 1;
-    $pizzas = Pizza::all();
-    $user->save();
-    return view('successlogin',compact('pizzas'));
-    
-    }else{
-
-      $request->validate([
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        'password' => ['required', 'string', 'min:8'],
-        'adress' => ['required', 'string', 'max:255'],
-    ]);
-    $user = new \App\User;
-    $user->email  = $request->input('email');
-    $user->password = Hash::make($request->input('password'));
-    $user->adress = $request->input('adress');
-    $pizzas = Pizza::all();
-    $user->save();
-    return view('successlogin',compact('pizzas'));
-    }
-    
-    }
-
-
     function successlogin()
     {
       $pizzas = Pizza::all();
       return view('successlogin',compact('pizzas'));
     }
 
+  
 
 
-    function logout()
+      function logout()
     {
      Auth::logout();
      return redirect('/');
+    }
+    public function goRegisterForm()
+    {
+        return view('auth.register');
+    }
+
+    //check register view
+
+    function checkregister(Request $request)
+    {
+      
+
+  
+
+      $request->validate([
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:8'],
+        'adress' => ['required', 'string', 'max:255'],
+    ]);
+    $user = new \App\User;
+    $user->email  = $request->input('email');
+    $user->password = Hash::make($request->input('password'));
+    $user->adress = $request->input('adress');
+    $pizzas = Pizza::all();
+    $user->save();
+    return view('successlogin',compact('pizzas'));
+    
+    
     }
 
     public function createPizza(Request $request)

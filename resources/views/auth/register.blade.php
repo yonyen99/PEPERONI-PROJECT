@@ -7,26 +7,7 @@
   <div class="auth__body">
     
     
-    @if(isset(Auth::user()->email))
-    <script>window.location="/successlogin";</script>
-   @endif
-
-   @if ($message = Session::get('error'))
-   <div class="alert alert-danger alert-block">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <strong>{{ $message }}</strong>
-   </div>
-   @endif
-
-   @if (count($errors) > 0)
-    <div class="alert alert-danger">
-     <ul>
-     @foreach($errors->all() as $error)
-      <li>{{ $error }}</li>
-     @endforeach
-     </ul>
-    </div>
-   @endif
+  
 
     <form class="auth__form" autocomplete="off" action="{{ url('/checkregister') }}" method="post">
       @csrf
