@@ -38,7 +38,7 @@
 									
 									<!-- Modal body -->
 									<div class="modal-body text-right">
-										<form  action="" method="post">
+										<form  action="{{route('updatePizza',$pizza->id)}}" method="post">
 											@csrf
                                        		 @method('patch')
 											<div class="form-group">
@@ -59,7 +59,7 @@
 								</div>
 							  </div>
 							  <!-- =================================END MODEL UPDATE==================================================== -->
-							<a href="" data-toggle="tooltip" title="Delete Pizza!" data-placement="right"><i class="material-icons text-danger">delete</i></a>
+							<a href="{{route('deletePizza',$pizza->id)}}" data-toggle="tooltip" title="Delete Pizza!" data-placement="right"><i class="material-icons text-danger">delete</i></a>
 						</td>
 						</tr>
 					@endforeach
@@ -85,7 +85,7 @@
         
         <!-- Modal body -->
         <div class="modal-body text-right">
-			<form  action="" method="post">
+			<form  action="{{route('createPizza')}}" method="post">
 				@csrf
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Pizza name" name ="name">

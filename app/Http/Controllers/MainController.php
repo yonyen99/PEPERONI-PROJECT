@@ -59,7 +59,7 @@ class MainController extends Controller
     }
 
     //check register view
-    
+
     function checkregister(Request $request)
     {
       
@@ -81,5 +81,39 @@ class MainController extends Controller
     
     
     }
+
+    public function createPizza(Request $request)
+    {   
+        $user = User::find(1);
+        $pizza = new Pizza;
+         $pizza->name = $request->get('name');
+         $pizza->ingredients = $request->get('ingredients');
+         $pizza->prize = $request->get('prize');
+         $pizza->user_id = $user->id;
+         $pizza->save();
+         return redirect('successlogin');
+        // return view(successlogin');
+    }
+
+
+    public function updatePizza($id, Request $request)
+   {
+
+        $pizza = Pizza::find($id);
+        $pizza->name = $request->get('name');
+        $pizza->ingredients = $request->get('ingredients');
+        $pizza->prize = $request->get('prize');
+        $pizza->save();
+        return redirect('successlogin');
+   }
+
+    
+    //delet student
+    public function deletePizza($id){
+      $pizza = Pizza::find($id);
+      $pizza ->delete();
+      return redirect('successlogin');
+  }
+
 
 }
