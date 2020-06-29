@@ -7,7 +7,26 @@
   <div class="auth__body">
     
     
-  
+    @if(isset(Auth::user()->email))
+    <script>window.location="/successlogin";</script>
+   @endif
+
+   @if ($message = Session::get('error'))
+   <div class="alert alert-danger alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>{{ $message }}</strong>
+   </div>
+   @endif
+
+   @if (count($errors) > 0)
+    <div class="alert alert-danger">
+     <ul>
+     @foreach($errors->all() as $error)
+      <li>{{ $error }}</li>
+     @endforeach
+     </ul>
+    </div>
+   @endif
 
     <form class="auth__form" autocomplete="off" action="{{ url('/checkregister') }}" method="post">
       @csrf
@@ -31,7 +50,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="1" name="mycheckbox" id="mycheckbox">I'm a manager
+                <input type="checkbox" class="form-check-input" value="1" name="role" id="role" >I'm a manager
             </label>
         </div>
         {{-- <div class="form-group">

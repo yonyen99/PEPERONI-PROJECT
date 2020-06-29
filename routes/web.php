@@ -18,11 +18,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::post('checklogin', 'MainController@checklogin');
-Route::get('successlogin', 'MainController@successlogin');
-Route::post('checkregister', 'MainController@checkregister');
-Route::get('logout', 'MainController@logout');
-Route::get('/formRegister', 'MainController@goRegisterForm')->name('formRegister');
-Route::post('/create', 'MainController@createPizza')->name('createPizza');
-Route::get('/delete{id}', 'MainController@deletePizza')->name('deletePizza');
-Route::patch('/update{id}', 'MainController@updatePizza')->name('updatePizza');
+Route::post('checklogin', 'PizzaController@checklogin');
+Route::get('successlogin', 'PizzaController@successlogin');
+Route::get('successregister', 'PizzaController@successregister');
+Route::post('checkregister', 'PizzaController@checkregister');
+Route::get('logout', 'PizzaController@logout');
+Route::get('/formRegister', 'PizzaController@goRegisterForm')->name('formRegister');
+Route::post('/create', 'PizzaController@createPizza')->name('createPizza');
+Route::get('/delete{id}', 'PizzaController@deletePizza')->name('deletePizza');
+Route::patch('/update{id}', 'PizzaController@updatePizza')->name('updatePizza');
