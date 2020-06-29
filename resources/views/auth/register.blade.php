@@ -9,7 +9,7 @@
     
   
 
-    <form class="auth__form" autocomplete="off" action="" method="post">
+    <form class="auth__form" autocomplete="off" action="{{ url('/checkregister') }}" method="post">
       @csrf
       <div class="auth__form_body">
         <h3 class="auth__form_title">

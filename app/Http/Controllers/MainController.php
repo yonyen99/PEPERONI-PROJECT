@@ -58,4 +58,27 @@ class MainController extends Controller
         return view('auth.register');
     }
 
+    //check register
+    function checkregister(Request $request)
+    {
+      
+
+  
+
+      $request->validate([
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:8'],
+        'adress' => ['required', 'string', 'max:255'],
+    ]);
+    $user = new \App\User;
+    $user->email  = $request->input('email');
+    $user->password = Hash::make($request->input('password'));
+    $user->adress = $request->input('adress');
+    $pizzas = Pizza::all();
+    $user->save();
+    return view('successlogin',compact('pizzas'));
+    
+    
+    }
+
 }
