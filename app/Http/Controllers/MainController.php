@@ -45,4 +45,17 @@ class MainController extends Controller
       return view('successlogin',compact('pizzas'));
     }
 
+  
+
+
+      function logout()
+    {
+     Auth::logout();
+     return redirect('/');
+    }
+    public function goRegisterForm()
+    {
+        return view('auth.register');
+    }
+
 }

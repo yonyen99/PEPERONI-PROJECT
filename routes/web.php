@@ -20,3 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 Route::post('checklogin', 'MainController@checklogin');
 Route::get('successlogin', 'MainController@successlogin');
+Route::post('checkregister', 'MainController@checkregister');
+Route::get('logout', 'MainController@logout');
+Route::get('/formRegister', 'MainController@goRegisterForm')->name('formRegister');
