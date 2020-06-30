@@ -46,12 +46,14 @@ class PizzaController extends Controller
 
 
 
-
+    //function for logout.
     function logout()
     {
         Auth::logout();
         return redirect('/');
     }
+
+    //funtion go to register form
     public function goRegisterForm()
     {
         return view('auth.register');
@@ -67,6 +69,7 @@ class PizzaController extends Controller
             'password' => ['required', 'string', 'min:8'],
             'adress' => ['required', 'string', 'max:255'],
         ]);
+
 
         if ($request->input('role') == true) {
 

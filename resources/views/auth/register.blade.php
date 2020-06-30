@@ -53,9 +53,6 @@
                 <input type="checkbox" class="form-check-input" value="1" name="role" id="role" >I'm a manager
             </label>
         </div>
-        {{-- <div class="form-group">
-          <input type="hidden" class="form-control" name="csrf-token" value="{{csrf_token()}}">
-        </div> --}}
         </div>
       </div>
       <div class="auth__form_actions">

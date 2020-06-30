@@ -23,6 +23,7 @@ Route::get('successlogin', 'PizzaController@successlogin');
 Route::get('successregister', 'PizzaController@successregister');
 Route::post('checkregister', 'PizzaController@checkregister');
 Route::get('logout', 'PizzaController@logout');
+Route::get('signin', 'PizzaController@signin');
 Route::get('/formRegister', 'PizzaController@goRegisterForm')->name('formRegister');
 Route::post('/create', 'PizzaController@createPizza')->name('createPizza');
 Route::get('/delete{id}', 'PizzaController@deletePizza')->name('deletePizza');

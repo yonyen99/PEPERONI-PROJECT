@@ -12,13 +12,12 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="nav navbar-nav ml-auto">
         <li class="nav-item">
-          {{-- <a class="nav-link text-uppercase" href="">Rady.y |</a>
-          <a class="nav-link text-uppercase" href="{{ url('/logout') }}">Logout</a> --}}
+         
 
+          <?php $email = explode('@',Auth::user()->email);?>
           @if(isset(Auth::user()->email))
           
-           {{-- <a href="{{ url('/logout') }}">Logout</a> --}}
-           <a class="nav-link text-uppercase" href="{{ url('/logout') }}">Rady.y |</a>
+           <a class="nav-link text-uppercase" href="{{ url('/logout') }}">{{$email[0]}} |</a>
            <a class="nav-link text-uppercase" href="{{ url('/logout') }}">Logout</a>
           </div>
          @else
